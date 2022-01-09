@@ -6,12 +6,16 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Lütfen Para Miktarını Girin : ");
         double price = scanner.nextDouble();
+        System.out.println(kdvHesapla(price));
+    }
+
+    public static String kdvHesapla(double price){
         int kdv = price < 1000 ? 18 : 8;
         double totalKdv = price*kdv/100;
         double totalPrice = price + totalKdv;
-        System.out.println("Kdv'siz Fiyat = " + price);
-        System.out.println("Kdv'li Fiyat = " + totalPrice);
-        System.out.println("Kdv Tutarı = " + totalKdv);
-
+        String message = "Kdv'siz Fiyat = " + price +
+                "\nKdv'li Fiyat = " + totalPrice +
+                "\nKdv Tutarı = " + totalKdv;
+        return message;
     }
 }
